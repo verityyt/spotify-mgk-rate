@@ -1,0 +1,12 @@
+{
+  "name": "spotify-mgk-rate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/test.js",
+  "scripts": {
+    "start": "tsc && node ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
