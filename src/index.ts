@@ -104,9 +104,17 @@ app.get('/playlist', (req, res) => {
             curTrack.artists = artistsNames
 
             allTracks[curIndex] = curTrack
+            /*console.log(`Direct: ${JSON.stringify(curTrack)}`)
+            console.log(`Object: ${curIndex} - ${JSON.stringify(allTracks[curIndex])}`)*/
             curIndex++;
 
         }
+
+        console.log("\n")
+
+        /*for(let i = 1; i < (items.length); i++) {
+            console.log(`Test: ${i} - ${JSON.stringify(allTracks[i])}`)
+        }*/
 
     }).catch(function (error) {
         console.log(error);
