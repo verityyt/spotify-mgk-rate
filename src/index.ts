@@ -85,16 +85,22 @@ app.get('/playlist', (req, res) => {
         const items = response.data.items
 
         for (let i = 1; i < items.length; i++) {
-            console.log(`\n${items[i].track.name}:`)
-
             const artists = items[i].track.artists
+            let artistsNames: Array<string> = []
 
             for (let i = 0; i < artists.length; i++) {
-                console.log(`   ${artists[i].name}`)
+                artistsNames[i] = artists[i].name
             }
 
-            console.log("\n")
+            let curTrack = {
+                name: '',
+                artists
+            }
 
+            curTrack.name = items[i].track.name
+            curTrack.artists = artistsNames
+
+            console.log(`\n${JSON.stringify(curTrack)}\n`)
         }
 
     }).catch(function (error) {
