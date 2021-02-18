@@ -83,7 +83,20 @@ app.get('/playlist', (req, res) => {
     axios.get(`https://api.spotify.com/v1/playlists/${playlistId}/tracks?market=DE`, config).then(function (response) {
         /*console.log("\nCall: \n")*/
         const items = response.data.items
-        console.log(items.length);
+
+        for (let i = 1; i < items.length; i++) {
+            console.log(`\n${items[i].track.name}:`)
+
+            const artists = items[i].track.artists
+
+            for (let i = 0; i < artists.length; i++) {
+                console.log(`   ${artists[i].name}`)
+            }
+
+            console.log("\n")
+
+        }
+
     }).catch(function (error) {
         console.log(error);
     }).then(function () {
