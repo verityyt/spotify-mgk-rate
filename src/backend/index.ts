@@ -103,6 +103,7 @@ app.get('/playlist', (req, res) => {
             curTrack.name = items[i].track.name
             curTrack.artists = artistsNames
 
+
             allTracks[curIndex] = curTrack
             /*console.log(`Direct: ${JSON.stringify(curTrack)}`)
             console.log(`Object: ${curIndex} - ${JSON.stringify(allTracks[curIndex])}`)*/
@@ -112,9 +113,22 @@ app.get('/playlist', (req, res) => {
 
         console.log("\n")
 
-        /*for(let i = 1; i < (items.length); i++) {
-            console.log(`Test: ${i} - ${JSON.stringify(allTracks[i])}`)
-        }*/
+        let mgkCount = 0
+
+        for (let i = 1; i < (items.length); i++) {
+            /*console.log(`Test: ${i} - ${JSON.stringify(allTracks[i])}`)*/
+            let artists = JSON.parse(JSON.stringify(allTracks[i])).artists as string[]
+            let name = JSON.parse(JSON.stringify(allTracks[i])).name
+
+            const mgk = artists.filter(e => e == "Machine Gun Kelly").length > 0
+
+            if (mgk) {
+                console.log(`${name} is from MGK! YEAH`)
+            }else {
+                console.log(`${name} is not from MGK! Ouh...`)
+            }
+
+        }
 
     }).catch(function (error) {
         console.log(error);

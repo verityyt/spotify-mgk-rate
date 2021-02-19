@@ -2,9 +2,10 @@
   "name": "spotify-mgk-rate",
   "version": "1.0.0",
   "description": "",
-  "main": "src/",
+  "main": "src/backend/index.js",
   "scripts": {
-    "start": "tsc && node ."
+    "start": "tsc && node .",
+    "compile": "tsc"
   },
   "keywords": [],
   "author": "",

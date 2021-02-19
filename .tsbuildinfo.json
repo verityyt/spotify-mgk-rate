@@ -226,10 +226,15 @@
         "signature": "1b1054394de3120063bd974265b57fb5c861a00cb7f8f7fd06276fee0c748439",
         "affectsGlobalScope": false
       },
-      "./src/index.ts": {
-        "version": "75483faa7297b1c7141d4a59504a5a551beb57dc9b224c0f2159a0de4c1d49f6",
+      "./src/backend/index.ts": {
+        "version": "21429611d51185a44b960eaa505ef6f1432adf1d883d9cfe3f8696b573ec29fc",
         "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6",
         "affectsGlobalScope": false
+      },
+      "./src/frontend/index.ts": {
+        "version": "0365528471d4298496dfe03aa3059bb38397fc3274fba215924e486a905bc6e1",
+        "signature": "d6949cd810efe0fcff3f2acc1fd7ab32c737d7dc07b1abda26c21f5e4d9de253",
+        "affectsGlobalScope": true
       },
       "./node_modules/@types/node/globals.d.ts": {
         "version": "215d8d9a2c480fd460127edc048d68d9931d3b27f95132253a6e71975f060bb1",
@@ -709,7 +714,7 @@
         "./node_modules/@types/node/stream.d.ts",
         "./node_modules/@types/node/zlib.d.ts"
       ],
-      "./src/index.ts": [
+      "./src/backend/index.ts": [
         "./node_modules/axios/index.d.ts",
         "./node_modules/js-base64/base64.d.ts"
       ]
@@ -1040,7 +1045,8 @@
       "./node_modules/@types/node/zlib.d.ts",
       "./node_modules/axios/index.d.ts",
       "./node_modules/js-base64/base64.d.ts",
-      "./src/index.ts"
+      "./src/backend/index.ts",
+      "./src/frontend/index.ts"
     ]
   },
   "version": "4.1.3"
