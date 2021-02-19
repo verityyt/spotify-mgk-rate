@@ -4,7 +4,8 @@
   "description": "",
   "main": "src/backend/index.js",
   "scripts": {
-    "start": "tsc && node .",
+    "backend": "tsc && node .",
+    "frontend": "tsc && browserify src/frontend/app.js -o src/frontend/bundle.js",
     "compile": "tsc"
   },
   "keywords": [],
