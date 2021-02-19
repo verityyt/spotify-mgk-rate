@@ -136,6 +136,7 @@ app.get('/playlist', (req, res) => {
     }).then(function () {
     })
 
+    res.set("Access-Control-Allow-Origin","*")
     res.send({ status: "success", id: playlistId })
 })
 

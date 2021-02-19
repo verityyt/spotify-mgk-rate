@@ -227,14 +227,14 @@
         "affectsGlobalScope": false
       },
       "./src/backend/index.ts": {
-        "version": "5b84f881bdcdd95a6cd3e7a6b5edc6a54e25bd37777d92342b400518eb3bc659",
+        "version": "44bb9e1299b378e6eefcc8deccd26105719a54cde42a43a8c4d2060eae34eb1d",
         "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6",
         "affectsGlobalScope": false
       },
-      "./src/frontend/index.ts": {
-        "version": "bc3777c58b17d946b759e61651dcc2dcf2bfffda2a1d5faa91338bde1ae604d5",
-        "signature": "d428c32f704811f6404f802e031d79fc130d98dc5667bdea9f82a6bb9b4d2e0d",
-        "affectsGlobalScope": true
+      "./src/frontend/app.ts": {
+        "version": "1b30b2b909c166cc09976ae17820389994b729f433c28565ca4fef8f4706a63e",
+        "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6",
+        "affectsGlobalScope": false
       },
       "./node_modules/@types/node/globals.d.ts": {
         "version": "215d8d9a2c480fd460127edc048d68d9931d3b27f95132253a6e71975f060bb1",
@@ -717,6 +717,9 @@
       "./src/backend/index.ts": [
         "./node_modules/axios/index.d.ts",
         "./node_modules/js-base64/base64.d.ts"
+      ],
+      "./src/frontend/app.ts": [
+        "./node_modules/axios/index.d.ts"
       ]
     },
     "exportedModulesMap": {
@@ -1046,7 +1049,7 @@
       "./node_modules/axios/index.d.ts",
       "./node_modules/js-base64/base64.d.ts",
       "./src/backend/index.ts",
-      "./src/frontend/index.ts"
+      "./src/frontend/app.ts"
     ]
   },
   "version": "4.1.3"
