@@ -87,10 +87,9 @@ app.get('/playlist', (req, res) => {
         /*console.log("\nCall: \n")*/
         const items = response.data.items
 
-        let allTracks = Array
-        let curIndex = 1
+        let allTracks: Array<Object> = []
 
-        for (let i = 1; i < items.length; i++) {
+        for (let i = 0; i < items.length; i++) {
             const artists = items[i].track.artists
             let artistsNames: Array<string> = []
 
@@ -107,18 +106,13 @@ app.get('/playlist', (req, res) => {
             curTrack.artists = artistsNames
 
 
-            allTracks[curIndex] = curTrack
-            /*console.log(`Direct: ${JSON.stringify(curTrack)}`)
-            console.log(`Object: ${curIndex} - ${JSON.stringify(allTracks[curIndex])}`)*/
-            curIndex++;
+            allTracks.push(curTrack)
 
         }
 
-        console.log("\n")
-
         let mgkCount = 0
 
-        for (let i = 1; i < (items.length); i++) {
+        for (let i = 0; i < (allTracks.length); i++) {
             /*console.log(`Test: ${i} - ${JSON.stringify(allTracks[i])}`)*/
             let json = JSON.parse(JSON.stringify(allTracks[i]))
             let artists = json.artists as string[]
