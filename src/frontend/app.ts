@@ -1,5 +1,3 @@
-import axios from "axios";
-
 let button = document.getElementById("button")
 
 if (button != null) {
@@ -11,21 +9,20 @@ if (button != null) {
             let value = textfield.value
 
             if (validURL(value)) {
-                console.log("Valid url")
                 let split = value.split("/")
                 let id = split[split.length - 1].split("?")[0]
-                console.log(`ID: ${id}`)
 
-                axios.get("http://localhost:3030/playlist", {
-                    params: {
-                        id: id
+                fetch(`http://localhost:3030/playlist?id=${id}`, {
+                    method: 'GET',
+                    mode: 'cors',
+                    headers: {
+                        'content-type': 'application/json'
                     }
-                }).then(function (response) {
-                    console.log(response);
-                }).catch(function (error) {
-                    console.log(error);
-                }).then(function () {
+                }).then(response => response.json()).then(data => {
+                    const jsonRespond = JSON.stringify(data)
+                    console.log(jsonRespond)
                 })
+
             } else {
                 console.log("Invalid url")
             }
