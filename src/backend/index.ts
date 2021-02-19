@@ -4,10 +4,13 @@ import base64 from "js-base64"
 
 require('dotenv/config')
 
+const cors = require("cors")
 const app = express()
 const port = 3030
 
 let accessToken = ""
+
+app.use(cors())
 
 app.get('/', (req, res) => {
     res.send({ status: "online" })
@@ -136,7 +139,8 @@ app.get('/playlist', (req, res) => {
     }).then(function () {
     })
 
-    res.set("Access-Control-Allow-Origin","*")
+    res.set("Access-Control-Allow-Origin", "*")
+    res.set("Access-Control-Allow-Credentials", true)
     res.send({ status: "success", id: playlistId })
 })
 
