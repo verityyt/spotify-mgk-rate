@@ -117,14 +117,15 @@ app.get('/playlist', (req, res) => {
 
         for (let i = 1; i < (items.length); i++) {
             /*console.log(`Test: ${i} - ${JSON.stringify(allTracks[i])}`)*/
-            let artists = JSON.parse(JSON.stringify(allTracks[i])).artists as string[]
-            let name = JSON.parse(JSON.stringify(allTracks[i])).name
+            let json = JSON.parse(JSON.stringify(allTracks[i]))
+            let artists = json.artists as string[]
+            let name = json.name
 
             const mgk = artists.filter(e => e == "Machine Gun Kelly").length > 0
 
             if (mgk) {
                 console.log(`${name} is from MGK! YEAH`)
-            }else {
+            } else {
                 console.log(`${name} is not from MGK! Ouh...`)
             }
 
