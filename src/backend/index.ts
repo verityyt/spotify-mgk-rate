@@ -105,37 +105,46 @@ app.get('/playlist', (req, res) => {
             curTrack.name = items[i].track.name
             curTrack.artists = artistsNames
 
-
             allTracks.push(curTrack)
 
         }
 
-        let mgkCount = 0
+        let returning = JSON.parse("{}")
+
+        let mgkSongs: Array<Object> = []
+        let otherSongs: Array<Object> = []
 
         for (let i = 0; i < (allTracks.length); i++) {
             /*console.log(`Test: ${i} - ${JSON.stringify(allTracks[i])}`)*/
             let json = JSON.parse(JSON.stringify(allTracks[i]))
             let artists = json.artists as string[]
-            let name = json.name
 
             const mgk = artists.filter(e => e == "Machine Gun Kelly").length > 0
 
             if (mgk) {
-                console.log(`${name} is from MGK! YEAH`)
+                mgkSongs.push(allTracks[i])
             } else {
-                console.log(`${name} is not from MGK! Ouh...`)
+                otherSongs.push(allTracks[i])
             }
 
         }
+
+        returning.rate = Math.round((mgkSongs.length / allTracks.length) * 100)
+
+        returning.mgkSongs = mgkSongs
+        returning.otherSongs = otherSongs
+
+        console.log("Example returning:")
+        console.log(JSON.stringify(returning))
+
+        res.set("Access-Control-Allow-Origin", "*")
+        res.set("Access-Control-Allow-Credentials", true)
+        res.send({ status: "success", id: playlistId, body: returning })
 
     }).catch(function (error) {
         console.log(error);
     }).then(function () {
     })
-
-    res.set("Access-Control-Allow-Origin", "*")
-    res.set("Access-Control-Allow-Credentials", true)
-    res.send({ status: "success", id: playlistId })
 })
 
 app.listen(port, () => {
