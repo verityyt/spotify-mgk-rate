@@ -3,10 +3,11 @@ let button = document.getElementById("button")
 if (button != null) {
     button.addEventListener("click", () => {
 
-        let textfield = document.getElementById("textfield") as HTMLInputElement
+        let textField = document.getElementById("textfield") as HTMLInputElement
+        let content = document.getElementById("content") as HTMLParagraphElement
 
-        if (textfield != null) {
-            let value = textfield.value
+        if (textField != null) {
+            let value = textField.value
 
             if (validURL(value)) {
                 let split = value.split("/")
@@ -19,8 +20,31 @@ if (button != null) {
                         'content-type': 'application/json'
                     }
                 }).then(response => response.json()).then(data => {
-                    const jsonRespond = JSON.stringify(data)
-                    console.log(jsonRespond)
+                    let body = data.body
+                    let mgkSongs = data.body.mgkSongs
+                    let otherSongs = data.body.otherSongs
+
+                    let textContent = `Rate: ${body.rate}%<br><br><u>Songs made by Machine Gun Kelly:</u>`
+
+                    for (let i = 0; i < mgkSongs.length; i++) {
+                        let curTrack = mgkSongs[i]
+                        let name = curTrack.name
+                        let artist = curTrack.artists.join(", ")
+
+                        textContent += `<br>${i + 1}. ${name} from ${artist}`
+                    }
+
+                    textContent+=`<br><br><u>Songs made by other artists:</u>`
+
+                    for (let i = 0; i < otherSongs.length; i++) {
+                        let curTrack = otherSongs[i]
+                        let name = curTrack.name
+                        let artist = curTrack.artists.join(", ")
+
+                        textContent += `<br>${i + 1}. ${name} from ${artist}`
+                    }
+
+                    content.innerHTML = textContent
                 })
 
             } else {
@@ -28,7 +52,7 @@ if (button != null) {
             }
 
 
-            textfield.value = ""
+            textField.value = ""
         }
 
     })
