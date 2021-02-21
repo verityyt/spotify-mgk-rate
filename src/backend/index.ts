@@ -84,7 +84,6 @@ app.get('/playlist', (req, res) => {
 
     // Sending final request with prepared headers and 'market=DE'
     axios.get(`https://api.spotify.com/v1/playlists/${playlistId}/tracks?market=DE`, config).then(function (response) {
-        /*console.log("\nCall: \n")*/
         const items = response.data.items
 
         let allTracks: Array<Object> = []
@@ -115,7 +114,6 @@ app.get('/playlist', (req, res) => {
         let otherSongs: Array<Object> = []
 
         for (let i = 0; i < (allTracks.length); i++) {
-            /*console.log(`Test: ${i} - ${JSON.stringify(allTracks[i])}`)*/
             let json = JSON.parse(JSON.stringify(allTracks[i]))
             let artists = json.artists as string[]
 
@@ -134,11 +132,6 @@ app.get('/playlist', (req, res) => {
         returning.mgkSongs = mgkSongs
         returning.otherSongs = otherSongs
 
-        console.log("Example returning:")
-        console.log(JSON.stringify(returning))
-
-        res.set("Access-Control-Allow-Origin", "*")
-        res.set("Access-Control-Allow-Credentials", true)
         res.send({ status: "success", id: playlistId, body: returning })
 
     }).catch(function (error) {
