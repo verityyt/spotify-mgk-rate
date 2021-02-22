@@ -5,6 +5,8 @@ let textField = document.getElementById("textfield") as HTMLInputElement
 let content = document.getElementById("content") as HTMLParagraphElement
 let title = document.getElementById("title") as HTMLParagraphElement
 
+let error = document.getElementById("error") as HTMLParagraphElement
+
 let token = new URLSearchParams(window.location.search).get("token")
 
 if(token != null) {
@@ -17,29 +19,27 @@ if(token != null) {
 }
 
 calcBtn.addEventListener("click", () => {
-
-
-
     if (token != null) {
         let value = textField.value
         if (matchesURL(value)) {
             let split = value.split("/")
             let id = split[split.length - 1].split("?")[0]
 
+
+            error.textContent = ""
             call(textField, content, value, id)
         } else if (matchesURI(value)) {
             let split = value.split(":")
             let id = split[split.length - 1]
 
+            error.textContent = ""
             call(textField, content, value, id)
         } else {
-            console.log("Invalid url")
+            error.textContent = "Invalid url or uri!"
         }
 
 
         textField.value = ""
-    } else {
-        console.log("Please authorize with spotify first!")
     }
 
 })
@@ -61,7 +61,7 @@ function call(textField: HTMLInputElement, content: HTMLParagraphElement, value:
         let mgkSongs = data.body.mgkSongs
         let otherSongs = data.body.otherSongs
 
-        let textContent = `Rate: ${body.rate}%<br><br><u>Songs made by Machine Gun Kelly:</u>`
+        let textContent = `<br><br>Rate: ${body.rate}%<br><br><u>Songs made by Machine Gun Kelly:</u>`
 
         for (let i = 0; i < mgkSongs.length; i++) {
             let curTrack = mgkSongs[i]
