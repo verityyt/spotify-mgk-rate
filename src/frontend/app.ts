@@ -1,12 +1,24 @@
 let calcBtn = document.getElementById("calcBtn") as HTMLInputElement
 let authBtn = document.getElementById("authBtn") as HTMLInputElement
 
+let textField = document.getElementById("textfield") as HTMLInputElement
+let content = document.getElementById("content") as HTMLParagraphElement
+let title = document.getElementById("title") as HTMLParagraphElement
+
 let token = new URLSearchParams(window.location.search).get("token")
+
+if(token != null) {
+    authBtn.style.display = "none"
+    calcBtn.style.display = "inline"
+
+    textField.style.display = "inline"
+    content.style.display = "inline"
+    title.style.display = "inline"
+}
 
 calcBtn.addEventListener("click", () => {
 
-    let textField = document.getElementById("textfield") as HTMLInputElement
-    let content = document.getElementById("content") as HTMLParagraphElement
+
 
     if (token != null) {
         let value = textField.value

@@ -4,8 +4,12 @@ body {
     font-family: "Rubik", sans-serif;
 }
 
-.title {
-    display: inline;
+#title {
+    display: none;
+}
+
+#calcBtn {
+    display: none;
 }
 
 input[type="text"] {
@@ -14,7 +18,8 @@ input[type="text"] {
     border-radius: 3px;
     padding: 3px;
     margin-left: 5px;
-    width: 500px
+    width: 500px;
+    display: none;
 }
 
 input[type="button"] {
