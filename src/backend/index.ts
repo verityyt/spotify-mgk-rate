@@ -131,12 +131,33 @@ app.get('/playlist', (req, res) => {
 
         }
 
-        returning.rate = Math.round((mgkSongs.length / allTracks.length) * 100)
+        axios.get(`https://api.spotify.com/v1/playlists/${playlistId}?market=DE`, config).then(function (response) {
 
-        returning.mgkSongs = mgkSongs
-        returning.otherSongs = otherSongs
+            let playlistImageUrl = ""
+            let images = response.data.images
 
-        res.send({ status: "success", id: playlistId, body: returning })
+            for (let i = 0; i < images.length; i++) {
+                let curImg = images[i]
+
+                if (curImg.height == 640) {
+                    playlistImageUrl = curImg.url
+                }
+            }
+
+            returning.rate = Math.round((mgkSongs.length / allTracks.length) * 100)
+
+            returning.name = response.data.name
+            returning.img = playlistImageUrl
+
+            returning.mgkSongs = mgkSongs
+            returning.otherSongs = otherSongs
+
+            res.send({ status: "success", id: playlistId, body: returning })
+
+        }).catch(function (error) {
+            console.log(error);
+        }).then(function () {
+        })
 
     }).catch(function (error) {
         console.log(error);

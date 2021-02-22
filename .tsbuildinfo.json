@@ -227,13 +227,13 @@
         "affectsGlobalScope": false
       },
       "./src/backend/index.ts": {
-        "version": "bad34d966c8f0e0a044343eb0d404e514de5834be54112b53eede498491f1a57",
+        "version": "61e1da880a495f298764f73f7a63afa39bf1a28314d0e324b87c77786d71987f",
         "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6",
         "affectsGlobalScope": false
       },
       "./src/frontend/app.ts": {
-        "version": "4a3f06519f6cb726a866ef88666b75710cd63800dd9919a837e9b6b0eada1c17",
-        "signature": "1aa4fddd58b03cd192cb5043b13d295bfcfc7ff34234d468e80e684f667e3053",
+        "version": "c21ba87f13624db56d865684ab2ed3b29236c1fa5fcf201a5fdad125ce88ee39",
+        "signature": "ab967a7a6f77fcfd5576e71f3f7815da66fe1294031f4ee2f8c4f66fc823b8a2",
         "affectsGlobalScope": true
       },
       "./node_modules/@types/cryptojs/index.d.ts": {
