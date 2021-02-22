@@ -4,6 +4,7 @@ let authBtn = document.getElementById("authBtn") as HTMLInputElement
 let textField = document.getElementById("textfield") as HTMLInputElement
 let content = document.getElementById("content") as HTMLParagraphElement
 let title = document.getElementById("title") as HTMLParagraphElement
+let image = document.getElementById("image") as HTMLImageElement
 
 let error = document.getElementById("error") as HTMLParagraphElement
 
@@ -61,7 +62,7 @@ function call(textField: HTMLInputElement, content: HTMLParagraphElement, value:
         let mgkSongs = data.body.mgkSongs
         let otherSongs = data.body.otherSongs
 
-        let textContent = `<br><br>Rate: ${body.rate}%<br>Song count: ${mgkSongs.length + otherSongs.length} (${mgkSongs.length}:${otherSongs.length})<br><br><u>Songs made by Machine Gun Kelly:</u>`
+        let textContent = `<span class="text"><span class="name">${body.name}</span><br><br>Rate: ${body.rate}%<br>Song count: ${mgkSongs.length + otherSongs.length} (${mgkSongs.length}:${otherSongs.length})</span><span class="text"><br><br><u>Songs made by Machine Gun Kelly:</u></span>`
 
         for (let i = 0; i < mgkSongs.length; i++) {
             let curTrack = mgkSongs[i]
@@ -81,6 +82,7 @@ function call(textField: HTMLInputElement, content: HTMLParagraphElement, value:
             textContent += `<br>${i + 1}. ${name} from ${artist}`
         }
 
+        image.src = body.img
         content.innerHTML = textContent
     })
 }
