@@ -8,8 +8,6 @@ const cors = require("cors")
 const app = express()
 const port = 3030
 
-let accessToken = ""
-
 app.use(cors())
 
 app.get('/', (req, res) => {
@@ -72,6 +70,7 @@ app.get('/callback', (req, res) => {
 app.get('/playlist', (req, res) => {
     // Getting playlistId from request query parameters
     const playlistId = req.query.id
+    const accessToken = req.query.token
 
     // Preparing headers for request
     const config = {
