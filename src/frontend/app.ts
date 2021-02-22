@@ -1,7 +1,8 @@
-let button = document.getElementById("button")
+let calcBtn = document.getElementById("calcBtn")
+let authBtn = document.getElementById("authBtn")
 
-if (button != null) {
-    button.addEventListener("click", () => {
+if (calcBtn != null) {
+    calcBtn.addEventListener("click", () => {
 
         let textField = document.getElementById("textfield") as HTMLInputElement
         let content = document.getElementById("content") as HTMLParagraphElement
@@ -26,6 +27,12 @@ if (button != null) {
             textField.value = ""
         }
 
+    })
+}
+
+if(authBtn != null) {
+    authBtn.addEventListener("click", () => {
+        window.location.href = "http://localhost:3030/login"
     })
 }
 
