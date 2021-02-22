@@ -13,24 +13,28 @@ if (calcBtn != null) {
         let textField = document.getElementById("textfield") as HTMLInputElement
         let content = document.getElementById("content") as HTMLParagraphElement
 
-        if (textField != null) {
-            let value = textField.value
-            if (matchesURL(value)) {
-                let split = value.split("/")
-                let id = split[split.length - 1].split("?")[0]
+        if(token != null) {
+            if (textField != null) {
+                let value = textField.value
+                if (matchesURL(value)) {
+                    let split = value.split("/")
+                    let id = split[split.length - 1].split("?")[0]
 
-                call(textField, content, value, id)
-            }else if(matchesURI(value)) {
-                let split = value.split(":")
-                let id = split[split.length - 1]
+                    call(textField, content, value, id)
+                }else if(matchesURI(value)) {
+                    let split = value.split(":")
+                    let id = split[split.length - 1]
 
-                call(textField, content, value, id)
-            } else {
-                console.log("Invalid url")
+                    call(textField, content, value, id)
+                } else {
+                    console.log("Invalid url")
+                }
+
+
+                textField.value = ""
             }
-
-
-            textField.value = ""
+        }else {
+            console.log("Please authorize with spotify first!")
         }
 
     })
@@ -44,7 +48,7 @@ if(authBtn != null) {
 
 function call(textField: HTMLInputElement, content: HTMLParagraphElement, value: String, id: String) {
 
-    fetch(`http://localhost:3030/playlist?id=${id}`, {
+    fetch(`http://localhost:3030/playlist?id=${id}&token=${token}`, {
         method: 'GET',
         mode: 'cors',
         headers: {
