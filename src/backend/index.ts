@@ -59,9 +59,6 @@ app.get('/callback', (req, res) => {
         axios.post("https://accounts.spotify.com/api/token", body, config).then(function (response) {
             /*console.log(response);*/
 
-            console.log("Token:")
-            console.log(response.data.access_token)
-
             let encrypted = encrypt(response.data.access_token)
             res.redirect(`http://localhost:63342/spotify-mgk-rate/src/frontend/?token=${encrypted}`)
 
