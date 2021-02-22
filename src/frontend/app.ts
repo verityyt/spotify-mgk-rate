@@ -3,10 +3,6 @@ let authBtn = document.getElementById("authBtn") as HTMLInputElement
 
 let token = new URLSearchParams(window.location.search).get("token")
 
-if (token != null) {
-    console.log(token)
-}
-
 calcBtn.addEventListener("click", () => {
 
     let textField = document.getElementById("textfield") as HTMLInputElement

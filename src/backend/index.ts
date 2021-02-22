@@ -1,10 +1,12 @@
 import express from "express"
 import axios from "axios"
 import base64 from "js-base64"
+import CryptoJs from "crypto-js"
 
 require('dotenv/config')
 
 const cors = require("cors")
+const crypto = require("cors")
 const app = express()
 const port = 3030
 
@@ -57,7 +59,11 @@ app.get('/callback', (req, res) => {
         axios.post("https://accounts.spotify.com/api/token", body, config).then(function (response) {
             /*console.log(response);*/
 
-            res.redirect(`http://localhost:63342/spotify-mgk-rate/src/frontend/?token=${response.data.access_token}`)
+            console.log("Token:")
+            console.log(response.data.access_token)
+
+            let encrypted = encrypt(response.data.access_token)
+            res.redirect(`http://localhost:63342/spotify-mgk-rate/src/frontend/?token=${encrypted}`)
 
         }).catch(function (error) {
             console.log(error);
@@ -71,7 +77,8 @@ app.get('/callback', (req, res) => {
 app.get('/playlist', (req, res) => {
     // Getting playlistId from request query parameters
     const playlistId = req.query.id
-    const accessToken = req.query.token
+    let token = req.query.token.split(" ").join("+")
+    const accessToken = decrypt(token)
 
     // Preparing headers for request
     const config = {
@@ -139,6 +146,17 @@ app.get('/playlist', (req, res) => {
     }).then(function () {
     })
 })
+
+function encrypt(str: string): string {
+    const secret = process.env.CRYPTO_SECRET
+    return CryptoJs.AES.encrypt(str, secret).toString()
+}
+
+function decrypt(str: string): string {
+    const secret = process.env.CRYPTO_SECRET
+    let decrypted = CryptoJs.AES.decrypt(str, secret)
+    return decrypted.toString(CryptoJs.enc.Utf8)
+}
 
 app.listen(port, () => {
     console.log(`spotify-mgk.rate app listening at http://localhost:${port}`)
