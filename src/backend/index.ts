@@ -56,7 +56,9 @@ app.get('/callback', (req, res) => {
         // Sending final request with already prepared body, and headers (putting puzzle together ;))
         axios.post("https://accounts.spotify.com/api/token", body, config).then(function (response) {
             /*console.log(response);*/
-            accessToken = response.data.access_token
+
+            res.redirect(`http://localhost:63342/spotify-mgk-rate/src/frontend/?token=${response.data.access_token}`)
+
         }).catch(function (error) {
             console.log(error);
         }).then(function () {
@@ -64,7 +66,6 @@ app.get('/callback', (req, res) => {
 
     }
 
-    res.send({ status: "success" })
 })
 
 app.get('/playlist', (req, res) => {
