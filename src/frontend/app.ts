@@ -61,7 +61,7 @@ function call(textField: HTMLInputElement, content: HTMLParagraphElement, value:
         let mgkSongs = data.body.mgkSongs
         let otherSongs = data.body.otherSongs
 
-        let textContent = `<br><br>Rate: ${body.rate}%<br><br><u>Songs made by Machine Gun Kelly:</u>`
+        let textContent = `<br><br>Rate: ${body.rate}%<br>Song count: ${mgkSongs.length + otherSongs.length}<br><br><u>Songs made by Machine Gun Kelly:</u>`
 
         for (let i = 0; i < mgkSongs.length; i++) {
             let curTrack = mgkSongs[i]
