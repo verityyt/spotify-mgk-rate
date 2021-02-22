@@ -227,13 +227,13 @@
         "affectsGlobalScope": false
       },
       "./src/backend/index.ts": {
-        "version": "7c99be9710b6651a0a332dd771111599634d20135c3c1e8e8e4bc8415b9b0831",
+        "version": "4854dbbfd7cab60e28377310bcfec304f72ab3732516214341f029656279c3d1",
         "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6",
         "affectsGlobalScope": false
       },
       "./src/frontend/app.ts": {
-        "version": "817c7d1c417b9251ce31678583c8cc3f3bebb0f8cb8d654793830b12994b177b",
-        "signature": "7037e2b907c79108dbdf39e3bc966e69a886c75ff8fe08e1adb02df9b8fbc540",
+        "version": "ebe900d3496ac33f5b5ba128e0aeb31c995922fd6f0004dd5a5f5cc043d20716",
+        "signature": "c753ffca46f09558145ff917f7dcd7cbecf1e9e8ce63d0c7480ccd119046e060",
         "affectsGlobalScope": true
       },
       "./node_modules/@types/node/globals.d.ts": {

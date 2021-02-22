@@ -1,6 +1,12 @@
 let calcBtn = document.getElementById("calcBtn")
 let authBtn = document.getElementById("authBtn")
 
+let token = new URLSearchParams(window.location.search).get("token")
+
+if(token != null) {
+    console.log(token)
+}
+
 if (calcBtn != null) {
     calcBtn.addEventListener("click", () => {
 
