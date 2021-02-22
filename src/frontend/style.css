@@ -46,7 +46,7 @@ input[type="button"]:hover {
 }
 
 #content {
-    font-size: 12px;
+    font-size: 15px;
     width: 60%;
 }
 
@@ -57,8 +57,4 @@ input[type="button"]:hover {
 .name {
     font-size: 18px;
     font-weight: 575;
-}
-
-.text {
-    font-size: 15px;
 }
