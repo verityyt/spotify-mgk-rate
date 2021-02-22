@@ -12,6 +12,13 @@ body {
     display: none;
 }
 
+#image {
+    width: 120px;
+    display: block;
+    margin-top: 50px;
+    margin-bottom: 5px;
+}
+
 input[type="text"] {
     font-family: "Rubik", sans-serif;
     border: 1px solid black;
@@ -45,4 +52,13 @@ input[type="button"]:hover {
 
 #error {
     color: red;
+}
+
+.name {
+    font-size: 18px;
+    font-weight: 575;
+}
+
+.text {
+    font-size: 15px;
 }
