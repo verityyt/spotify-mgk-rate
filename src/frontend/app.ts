@@ -1,50 +1,46 @@
-let calcBtn = document.getElementById("calcBtn")
-let authBtn = document.getElementById("authBtn")
+let calcBtn = document.getElementById("calcBtn") as HTMLInputElement
+let authBtn = document.getElementById("authBtn") as HTMLInputElement
 
 let token = new URLSearchParams(window.location.search).get("token")
 
-if(token != null) {
+if (token != null) {
     console.log(token)
 }
 
-if (calcBtn != null) {
-    calcBtn.addEventListener("click", () => {
+calcBtn.addEventListener("click", () => {
 
-        let textField = document.getElementById("textfield") as HTMLInputElement
-        let content = document.getElementById("content") as HTMLParagraphElement
+    let textField = document.getElementById("textfield") as HTMLInputElement
+    let content = document.getElementById("content") as HTMLParagraphElement
 
-        if(token != null) {
-            if (textField != null) {
-                let value = textField.value
-                if (matchesURL(value)) {
-                    let split = value.split("/")
-                    let id = split[split.length - 1].split("?")[0]
+    if (token != null) {
+        if (textField != null) {
+            let value = textField.value
+            if (matchesURL(value)) {
+                let split = value.split("/")
+                let id = split[split.length - 1].split("?")[0]
 
-                    call(textField, content, value, id)
-                }else if(matchesURI(value)) {
-                    let split = value.split(":")
-                    let id = split[split.length - 1]
+                call(textField, content, value, id)
+            } else if (matchesURI(value)) {
+                let split = value.split(":")
+                let id = split[split.length - 1]
 
-                    call(textField, content, value, id)
-                } else {
-                    console.log("Invalid url")
-                }
-
-
-                textField.value = ""
+                call(textField, content, value, id)
+            } else {
+                console.log("Invalid url")
             }
-        }else {
-            console.log("Please authorize with spotify first!")
+
+
+            textField.value = ""
         }
+    } else {
+        console.log("Please authorize with spotify first!")
+    }
 
-    })
-}
+})
 
-if(authBtn != null) {
-    authBtn.addEventListener("click", () => {
-        window.location.href = "http://localhost:3030/login"
-    })
-}
+authBtn.addEventListener("click", () => {
+    window.location.href = "http://localhost:3030/login"
+})
 
 function call(textField: HTMLInputElement, content: HTMLParagraphElement, value: String, id: String) {
 
