@@ -54,6 +54,7 @@ input[type="button"]:hover {
 #content {
     font-size: 15px;
     width: 60%;
+    color: white;
 }
 
 #error {
