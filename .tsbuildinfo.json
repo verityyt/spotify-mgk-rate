@@ -232,7 +232,7 @@
         "affectsGlobalScope": false
       },
       "./src/frontend/app.ts": {
-        "version": "abe7ee4a945606109334885b8056ef1c19f0a30df67dd0577d64ef3c72cbbd77",
+        "version": "133524259d4c6c28e6e8cb77da972fedc2addfd47a1015cbdd65cf8007693e76",
         "signature": "ab967a7a6f77fcfd5576e71f3f7815da66fe1294031f4ee2f8c4f66fc823b8a2",
         "affectsGlobalScope": true
       },

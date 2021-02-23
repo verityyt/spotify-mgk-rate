@@ -17,6 +17,11 @@ if (token != null) {
     textField.style.display = "inline"
     content.style.display = "inline"
     title.style.display = "inline"
+
+    setTimeout(() => {
+        alert("Token expired!\nPlease reauthenticate with spotify")
+        window.location.replace("http://localhost:63342/spotify-mgk-rate/src/frontend/index.html")
+    },15 * 60 * 1000)
 }
 
 calcBtn.addEventListener("click", () => {
@@ -42,7 +47,6 @@ calcBtn.addEventListener("click", () => {
 
         textField.value = ""
     }
-
 })
 
 authBtn.addEventListener("click", () => {
