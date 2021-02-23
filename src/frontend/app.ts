@@ -20,7 +20,7 @@ if (token != null) {
 
     setTimeout(() => {
         alert("Token expired!\nPlease reauthenticate with spotify")
-        window.location.replace("http://localhost:63342/spotify-mgk-rate/src/frontend/index.html")
+        window.location.assign("http://localhost:63342/spotify-mgk-rate/src/frontend/index.html?_ijt=l8oua3o2pgatt5d75kam79vchi")
     },15 * 60 * 1000)
 }
 
